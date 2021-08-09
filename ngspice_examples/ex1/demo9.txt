@@ -1,0 +1,42 @@
+***************NG spice Tutorial****************
+***************************************************
+**************************************************
+.include cmos_130nm.txt
+
+**********Netlist*******
+vdd net1 gnd 1.5
+rd net1  vout 10k
+***vg vin gnd 0.6
+***vg vin gnd sin(0.4 50m 10k)
+vg vin gnd dc 0.6 ac 1
+*M1 Drain Gate Source Body
+M1 vout vin gnd gnd NMOS w=1u L=130n
+
+*********************************
+***********Analysis*******
+.control 
+*op
+*print @M1[id]
+*print @M1[gm]
+*print v(vout)
+
+************DC Sweep********
+*save all @M1[id]
+*save all @M1[gm]
+*dc vg 0 1.5 0.01
+*plot v(vout)
+*plot @M1[id]  vs v(vout)
+*plot @M1[gm]
+
+
+***********small signal analysis*************
+*tran 1u 0.5m
+*plot v(vout) v(vin)
+
+
+***************AC / Frequency response**************
+ac dec 100 1 100G
+plot vdb(vout)
+plot ph(vout)
+.endc
+.end

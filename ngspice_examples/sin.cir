@@ -1,0 +1,8 @@
+*sin wave
+.tran 0.1ns 100ns
+vin 3 0 sin(0 1 100meg)
+.control
+run
+plot v(3)
+.endc
+.end

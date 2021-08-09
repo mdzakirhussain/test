@@ -1,0 +1,9 @@
+*Exponential wave
+.tran 1ns 200ns
+VCLOCK 7 0 PWL(0 -7 10ns -7 11ns -3 17ns -3 18ns -7 50ns -7)
++ r=0 td=15ns
+.control
+run
+plot v(7)
+.endc
+.end

@@ -1,0 +1,9 @@
+*Amplitude modulated source (AM)
+.tran 1ns 200ns
+*V1 12 0 AM (0.5 1 20 K 5 MEG 1m )
+V1 12 0 AM (0.5 1 20K 5MEG)
+.control
+run
+plot v(12)
+.endc
+.end

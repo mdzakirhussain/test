@@ -1,0 +1,8 @@
+*pulse
+.tran 0.1ns 1500ns
+v1 1 0 PULSE(-1 1 0NS 0NS 0NS 50NS 100NS)
+.control
+run
+plot v(1)
+.endc
+.end

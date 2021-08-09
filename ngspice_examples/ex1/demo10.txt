@@ -1,0 +1,16 @@
+************NG spice Digital Circuit Example*************
+.include cmos_130nm.txt
+.param supply =1.5
+*******Netlist************
+vdd net1 gnd supply
+mn1 output input gnd gnd NMOS  W=0.5u L=130n
+mp1 output input net1 net1 PMOS W=1u L=130n
+c1 output gnd 0.1p
+vin input gnd pulse(0 supply 0 0.5p 0.5p 0.1u 0.2u)
+.tran 1p 0.4u
+.control
+run
+plot v(output) v(input)
+
+.endc
+.end

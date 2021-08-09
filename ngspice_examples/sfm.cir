@@ -1,0 +1,9 @@
+*Single-Frequency FM
+.tran 1ns 200ns
+*V1 12 0 SFFM (0 1M 20K 5 1K )
+V1 12 0 SFFM (0 1M 20K 5)
+.control
+run
+plot v(12)
+.endc
+.end

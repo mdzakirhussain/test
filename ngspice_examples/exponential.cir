@@ -1,0 +1,8 @@
+*Exponential wave
+.tran 0.1ns 1000ns
+VIN 3 0 EXP(-4 -1 2NS 30NS 60NS 40NS)
+.control
+run
+plot v(3)
+.endc
+.end

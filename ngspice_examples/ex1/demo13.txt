@@ -1,0 +1,21 @@
+.include cmos_130nm.txt
+.param supply =1.5
+.subckt inv input output gnd
+vdd net1 gnd supply
+mn1 output input gnd gnd nmos w=0.5u l=130n
+mp1 output input net1 net1 pmos w=1u l=130n
+.ends inv
+vin input gnd pulse(0 supply 0 0.5p 0.5p 0.1u 0.2u)
+x1 input net1 gnd inv
+x2 net1 net2 gnd inv
+x3 net2 net3 gnd inv
+x4 net3 output gnd inv
+c1 output gnd 0.1p
+
+******
+.tran 1p 0.4u
+.control
+run
+plot v(output) v(input)
+.endc
+.end
