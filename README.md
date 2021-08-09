@@ -1,0 +1,1 @@
+This repository initailly intended to test how git works.
